@@ -26,8 +26,9 @@ public class KanjiToInteger {
 				}
 			}
 			return strToInt(b.toString());
+		}else {
+			throw new NumberFormatException();
 		}
-		return null;
 	}
 	/**
 	 * 
