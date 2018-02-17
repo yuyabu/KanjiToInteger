@@ -17,7 +17,7 @@ public class KanjiToInteger {
 		if(s.matches("[0-9]+")) {
 			return strToInt(s);
 			
-		}else if(s.matches("(一|二|三|四|五|六|七|八|九|零)+")){
+		}else if(s.matches("(一|二|三|四|五|六|七|八|九|零|[0-9])+")){
 			StringBuilder b = new StringBuilder(s);
 			for (Map.Entry<String, String> m : kanJiNumMap.entrySet()) {
 				int i;

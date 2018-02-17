@@ -38,14 +38,26 @@ class TestKanjiToInteger {
 			Integer number = kti.toInteger("一九八四");
 			assertEquals(expected,number);
 		}
-		@DisplayName("数値でない漢字が来た時の対応")
 		@Test
-		void 数値でない漢字が来た時の対応() {
-			try{
-				kti.toInteger("数値でない");
-				fail();
-			}catch(Exception e) {
+		@DisplayName("漢字と数字が混ざった時")
+		void 漢字と数字が混ざった時(){
+			Integer expected = 1984;
+			Integer number = kti.toInteger("一9八四");
+			assertEquals(expected,number);
+		}
+		@Nested
+		@DisplayName("例外系のテスト")
+		class 例外{
+			@DisplayName("数値でない漢字が来た時の対応")
+			@Test
+			void 数値でない漢字が来た時の例外のテスト() {
+				try{
+					kti.toInteger("数値でない");
+					fail();
+				}catch(Exception e) {
+				}
 			}
+			
 		}
 	}
 	@Nested
