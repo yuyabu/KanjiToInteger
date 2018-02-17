@@ -14,10 +14,11 @@ public class KanjiToInteger {
 		    "零","0");
 
 	Integer toInteger(String s) {
+		
 		if(s.matches("[0-9]+")) {
 			return strToInt(s);
 			
-		}else if(s.matches("(一|二|三|四|五|六|七|八|九|零|[0-9])+")){
+		}else if(s.matches("("+ String.join("|",kanJiNumMap.keySet()) + "|[0-9])+")){
 			StringBuilder b = new StringBuilder(s);
 			for (Map.Entry<String, String> m : kanJiNumMap.entrySet()) {
 				int i;
