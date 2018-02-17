@@ -2,15 +2,18 @@ import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
 @RunWith(Enclosed.class)
 class TestKanjiToInteger {
+	
 	static KanjiToInteger kti;
 	@BeforeAll
 	static void init() {
@@ -48,7 +51,7 @@ class TestKanjiToInteger {
 		@Nested
 		@DisplayName("例外系のテスト")
 		class 例外{
-			@DisplayName("数値でない漢字が来た時の対応")
+			@DisplayName("例外確認(TDD本にあったver)")
 			@Test
 			void 数値でない漢字が来た時の例外のテスト() {
 				try{
@@ -56,6 +59,26 @@ class TestKanjiToInteger {
 					fail();
 				}catch(Exception e) {
 				}
+			}
+			@DisplayName("例外確認(Assertを使うver)")
+			@Test
+			void 数値でない漢字が来た時の例外のテスト2() {
+				try{
+					kti.toInteger("数値でない");
+					fail();
+				}catch(Exception e) {
+					assertEquals(NumberFormatException.class, e.getClass());
+				}
+			}
+			@Rule
+		    public ExpectedException expectedException = ExpectedException.none();
+			
+			@DisplayName("例外確認(annotationを使うver)")
+			@Test
+			void 数値でない漢字が来た時の例外のテスト3() {
+				expectedException.expect(java.lang.NumberFormatException.class);
+				//throw new NumberFormatException();
+				kti.toInteger("数値でない");
 			}
 			
 		}
