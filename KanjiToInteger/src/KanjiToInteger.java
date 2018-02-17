@@ -18,7 +18,7 @@ public class KanjiToInteger {
 
 	Integer toInteger(String s) {
 		if(s.matches("[0-9]+")) {
-			return stringtoInteger(s);
+			return strToInt(s);
 			
 		}else if(s.matches("(一|二|三|四|五|六|七|八|九|零)+")){
 			StringBuilder b = new StringBuilder(s);
@@ -28,7 +28,7 @@ public class KanjiToInteger {
 					b.replace(i, i + m.getKey().length(), m.getValue());
 				}
 			}
-			return stringtoInteger(b.toString());
+			return strToInt(b.toString());
 		}
 		return null;
 	}
@@ -37,7 +37,7 @@ public class KanjiToInteger {
 	 * @param Kanji
 	 * @return
 	 */
-	private Integer stringtoInteger(String Kanji) {
+	private Integer strToInt(String Kanji) {
 		return Integer.valueOf(Kanji);
 	}
 	
