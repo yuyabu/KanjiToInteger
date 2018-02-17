@@ -11,7 +11,7 @@ class TestKanjiToInteger {
 		kti = new KanjiToInteger();
 	}
 	@Test
-	void test() {
+	void 文字型を数値型に変換() {
 		Integer expected = 123;
 		Integer number =  kti.toInteger("123");
 		assertEquals(expected,number);
