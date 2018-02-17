@@ -31,7 +31,9 @@ class TestKanjiToInteger {
 	class 漢字が含まれる{
 		@Test
 		void 漢字を数値型に変更() {
-			
+			Integer expected = 1984;
+			Integer number = kti.toInteger("一九八四");
+			assertEquals(expected,number);
 		}
 	}
 	
