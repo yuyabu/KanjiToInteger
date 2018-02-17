@@ -49,6 +49,12 @@ class TestKanjiToInteger {
 		}
 		
 	}
+	@Nested
+	@DisplayName("そのほかのテスト")
+	class その他のテスト{
+		
+	}
+	
 	
 
 }
