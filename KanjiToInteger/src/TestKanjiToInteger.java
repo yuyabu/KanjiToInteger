@@ -34,7 +34,20 @@ class TestKanjiToInteger {
 			Integer expected = 1984;
 			Integer number = kti.toInteger("一九八四");
 			assertEquals(expected,number);
+			
 		}
+		/**
+		 * 三角測量
+		 */
+		@Test
+		void 漢字を数値型に変更2() {
+			//三角測量
+			Integer expected2 = 123;
+			Integer number2 = kti.toInteger("一二三");
+			assertEquals(expected2,number2);
+
+		}
+		
 	}
 	
 
