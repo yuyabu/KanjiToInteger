@@ -1,7 +1,4 @@
-import java.util.HashMap;
 import java.util.Map;
-
-import javax.management.ImmutableDescriptor;
 
 public class KanjiToInteger {
 	private Map<String,String> kanJiNumMap = Map.of(
